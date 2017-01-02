@@ -1,0 +1,36 @@
+body {
+  background-color: #fafafa !important;
+}
+
+div.autocomplete {
+  width: 100%;
+  z-index: 100;
+}
+
+.autocomplete input {
+  width: 100%;
+}
+
+.ac-result {
+  background-color: transparent;
+  color: #555;
+}
+
+.ac-result div {
+  background-color: transparent;
+}
+
+.searchbar {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.score {
+  color: #F44336;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.winery {
+  font-weight: bolder;
+}
