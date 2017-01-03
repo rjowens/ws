@@ -13,7 +13,7 @@ class AutoCompleteStore {
   }
 
   getWords(word) {
-    axios.get(`http://localhost:3000/autocomplete.json?search=${word}`).then((response) => this.receivedWords(response))
+    axios.get(`http://rjowens.is-a-linux-user.org:3000/autocomplete.json?search=${word}`).then((response) => this.receivedWords(response))
   }
 }
 

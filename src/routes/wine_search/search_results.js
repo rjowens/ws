@@ -4,9 +4,7 @@ import { observer } from 'mobx-react';
 @observer
 class SearchResults extends Component {
   renderWineVintages() {
-    console.log (this.props.store)
     return this.props.store.wineVintages.map( (wine_vintage) => {
-      console.log(wine_vintage);
       return(
         <li
            className="list-group-item"

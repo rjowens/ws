@@ -1,0 +1,155 @@
+body {
+  background-color: #fafafa !important;
+}
+
+.navbar-header {
+  .navbar-brand {
+    font-weight: bolder;
+    font-size: 2.0em;
+  }
+}
+
+.list-group-horizontal {
+  .list-group-item {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: -4px;
+    margin-right: 0;
+    padding: 4px 15px;
+  }
+
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 4px;
+  }
+  .list-group-item:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.navbar-default {
+  background-color: #263238;
+
+  .navbar-brand {
+    color: #eceff1;
+  }
+}
+
+div.autocomplete {
+  z-index: 100;
+
+  input {
+    width: 100%;
+    height: 35px;
+    padding-left: 15px;
+    display: table-cell;
+  }
+}
+
+.ac-result {
+  background-color: transparent;
+  color: #555;
+  padding-left: 15px;
+}
+
+.ac-result div {
+  background-color: transparent;
+}
+
+.searchbar {
+  padding-top: 10px;
+  padding-bottom: 45px;
+}
+
+.score {
+  color: #F44336;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.winery {
+  font-weight: bolder;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #eee;
+}
+
+.tasting-notes {
+  .score-holder {
+    padding-left: 0;
+  }
+
+  hr {
+    border-color: #ccc;
+  }
+
+  .winery {
+    font-size: 1.5em;
+  }
+
+  .wine {
+    font-size: 1.3em;
+  }
+
+  .vintage {
+    font-size: 1.3em;
+  }
+
+  .score {
+    font-size: 2.5em;
+  }
+
+  .tasting-note {
+    color: #555;
+  }
+}
+
+.facet-group {
+  .facet-header {
+    font-size: 1.2em;
+    font-weight: bolder;
+    padding-bottom: 5px;
+  }
+
+  ul {
+    padding-left: 10px;
+  }
+  li {
+    list-style-type: none;
+    padding-bottom: 5px;
+    color: #555;
+  }
+  li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+div.pagination {
+  margin: 0;
+  margin-bottom: 20px;
+
+  ul.pagination {
+    margin: 0;
+  }
+
+  li {
+    a {
+      color: #455a64;
+    }
+  }
+
+  li.active {
+    a {
+      background-color: #37474F;
+      border-color: #37474F;
+      color: white;
+    }
+  }
+}

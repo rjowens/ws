@@ -17,44 +17,41 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="searchbar">
-        <div className="container">
-          <div style={{maxWidth: "50%", marginLeft: "auto", marginRight: "auto"}}>
-            <div
-              className="input-group autocomplete"
-              >
-              <Autocomplete
-                value={this.state.term}
-                items={this.props.acStore.words}
-                wrapperStyle={{width: "100%", zIndex: 1000}}
-                onChange={(event, value) => {
-                  this.setState({term: value});
-                  this.props.onSearch(this.state.term);
-                }}
-                onSelect={(value, item) => {
-                  this.props.onItemSelect(item.criterion);
-                }}
-                getItemValue={(item) => item.word}
-                renderItem={(item, isHighlighted) => (
-                  <div
-                    className="ac-result"
-                    style={isHighlighted ? {backgroundColor: "#eee", color: "#37474F"} : {}}
-                    >
-                    {item.word}
-                  </div>
-                )}
-                erenderMenu={children =>
-                  <div style={{
-                      borderRadius: "3px",
-                      position: "absolute",
-                      overflow: "auto",
-                      width: "100%"
-                    }}>
-                    {children}
-                  </div>
-                }
-                />
-            </div>
-          </div>
+        <div className="col-md-3"></div>
+        <div
+          className="col-md-5 autocomplete"
+          >
+          <Autocomplete
+            value={this.state.term}
+            items={this.props.acStore.words}
+            wrapperStyle={{zIndex: 1000}}
+            onChange={(event, value) => {
+              this.setState({term: value});
+              this.props.onSearch(this.state.term);
+            }}
+            onSelect={(value, item) => {
+              this.props.onItemSelect(item.criterion);
+            }}
+            getItemValue={(item) => item.word}
+            renderItem={(item, isHighlighted) => (
+              <div
+                className="ac-result"
+                style={isHighlighted ? {backgroundColor: "#eee", color: "#37474F"} : {}}
+                >
+                {item.word}
+              </div>
+            )}
+            erenderMenu={children =>
+              <div style={{
+                  borderRadius: "3px",
+                  position: "absolute",
+                  overflow: "auto",
+                  width: "100%"
+                }}>
+                {children}
+              </div>
+            }
+            />
         </div>
       </div>
     );
