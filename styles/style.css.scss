@@ -34,7 +34,28 @@ body {
   .navbar-brand {
     color: #eceff1;
   }
+
+  .navbar-nav {
+    li.active {
+      a{
+        background-color: inherit;
+        font-weight: bold;
+        text-decoration: underline;;
+        color: #ECEFF1;
+      }
+      a:hover {
+        background-color: inherit;
+      }
+    }
+    li {
+      a {
+        color: #eceff1;
+      }
+    }
+  }
 }
+
+
 
 div.autocomplete {
   z-index: 100;
@@ -151,5 +172,15 @@ div.pagination {
       border-color: #37474F;
       color: white;
     }
+  }
+}
+
+div.password {
+  padding-top: 80px;
+
+  button.btn-success {
+    width: 100%;
+    background-color: #607D8B;
+    border-color: #607D8B;
   }
 }

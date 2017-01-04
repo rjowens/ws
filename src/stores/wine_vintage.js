@@ -1,5 +1,6 @@
 import { observable } from 'mobx';
 import axios from 'axios';
+import WineAPI from '../service/wine_api'
 
 class WineVintageStore {
   @observable wineVintages = [];
@@ -7,9 +8,13 @@ class WineVintageStore {
   @observable selectedWineVintage = null;
   @observable criteria = [];
 
+  wine_api = new WineAPI();
+
   constructor() {
     this.getWineVintages = this.getWineVintages.bind(this)
     this.selectWineVintage = this.selectWineVintage.bind(this)
+    this.receivedWineVintages = this.receivedWineVintages.bind(this)
+    this.setSelectedWineVintage = this.setSelectedWineVintage.bind(this)
   }
 
   clearCriteria() {
@@ -19,7 +24,7 @@ class WineVintageStore {
   removeCriteria(c) {
     var index = this.criteria.indexOf(c)
     this.criteria.splice(index, 1)
-    axios.get(`http://localhost:3000/wine_vintages.json?search=${this.criteria.join(' AND ')}`).then((response) => this.receivedWineVintages(response));
+    this.wine_api.searchWineVintages(this.criteria, this.receivedWineVintages);
   }
 
   receivedWineVintages(response) {
@@ -30,7 +35,7 @@ class WineVintageStore {
   getWineVintages(criterion) {
     console.log(criterion)
     this.criteria.push(criterion)
-    axios.get(`http://localhost:3000/wine_vintages.json?search=${this.criteria.join(' AND ')}`).then((response) => this.receivedWineVintages(response));
+    this.wine_api.searchWineVintages(this.criteria, this.receivedWineVintages);
   }
 
   setSelectedWineVintage(response) {
@@ -38,7 +43,7 @@ class WineVintageStore {
   }
 
   selectWineVintage(wine_vintage_id) {
-    axios.get(`http://localhost:3000/wine_vintages/${wine_vintage_id}.json`).then((response) => this.setSelectedWineVintage(response));
+    this.wine_api.getWineVintage(wine_vintage_id, this.setSelectedWineVintage)
   }
 }
 

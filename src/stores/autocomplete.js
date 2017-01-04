@@ -1,11 +1,15 @@
 import { observable } from 'mobx';
 import axios from 'axios';
+import WineAPI from '../service/wine_api'
 
 class AutoCompleteStore {
   @observable words = []
+  wine_api = new WineAPI()
 
   constructor() {
     this.getWords = this.getWords.bind(this)
+
+    this.receivedWords = this.receivedWords.bind(this)
   }
 
   receivedWords(response) {
@@ -13,7 +17,7 @@ class AutoCompleteStore {
   }
 
   getWords(word) {
-    axios.get(`http://localhost:3000/autocomplete.json?search=${word}`).then((response) => this.receivedWords(response))
+    this.wine_api.getAutocomplete(word, this.receivedWords)
   }
 }
 
