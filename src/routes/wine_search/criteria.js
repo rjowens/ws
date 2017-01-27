@@ -6,9 +6,14 @@ import DevTools from 'mobx-react-devtools'
 class Criteria extends Component {
   renderCriteria() {
     return this.props.store.criteria.map((c) => {
+      console.log(c)
       return <a href="#"
         className="list-group-item"
-        onClick={(evt) => { this.props.store.removeCriteria(c)}}
+        onClick={(evt) => {
+          evt.preventDefault()
+          this.props.store.removeCriteria(c)
+        }}
+        key={c.criterion}
         >{c.substring(c.indexOf('"') + 1, c.lastIndexOf('"'))}</a>
     })
   }

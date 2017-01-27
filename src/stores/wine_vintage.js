@@ -7,6 +7,7 @@ class WineVintageStore {
   @observable facets = [];
   @observable selectedWineVintage = null;
   @observable criteria = [];
+  @observable summary = null;
 
   wine_api = new WineAPI();
 
@@ -15,10 +16,16 @@ class WineVintageStore {
     this.selectWineVintage = this.selectWineVintage.bind(this)
     this.receivedWineVintages = this.receivedWineVintages.bind(this)
     this.setSelectedWineVintage = this.setSelectedWineVintage.bind(this)
+    this.selectAutoComplete = this.selectAutoComplete.bind(this)
   }
 
   clearCriteria() {
-    criteria = [];
+    this.criteria = [];
+  }
+
+  selectAutoComplete(criterion) {
+    this.clearCriteria()
+    this.getWineVintages(criterion)
   }
 
   removeCriteria(c) {
@@ -30,10 +37,11 @@ class WineVintageStore {
   receivedWineVintages(response) {
     this.wineVintages = response.data.results;
     this.facets = response.data.facets;
+    this.summary = response.data.summary;
+    this.selectWineVintage(this.wineVintages[0].wine_vintage_id)
   }
 
   getWineVintages(criterion) {
-    console.log(criterion)
     this.criteria.push(criterion)
     this.wine_api.searchWineVintages(this.criteria, this.receivedWineVintages);
   }

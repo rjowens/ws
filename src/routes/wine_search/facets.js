@@ -8,7 +8,11 @@ class Facets extends Component {
   renderFacetGroup(facet) {
     return this.props.store.facets[`${facet}`].map( (f) => {
       return <li
-        onClick={() => {this.props.store.getWineVintages(f.criterion)}}
+        onClick={(evt) => {
+          evt.preventDefault()
+          this.props.store.getWineVintages(f.criterion)}
+        }
+        key={f.criterion}
         >{f.column} ({f.count})</li>
     })
   }
@@ -16,7 +20,7 @@ class Facets extends Component {
   renderFacets() {
     return Object.keys(this.props.store.facets).map( (facet) => {
       return <div className="facet-group">
-        <div className="facet-header">{facet}</div>
+        <div className="facet-header" key={facet.column}>{facet}</div>
         <ul>
           {this.renderFacetGroup(facet)}
         </ul>

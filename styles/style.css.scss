@@ -80,7 +80,7 @@ div.autocomplete {
 
 .searchbar {
   padding-top: 10px;
-  padding-bottom: 45px;
+  padding-bottom: 50px;
 }
 
 .score {
@@ -127,7 +127,7 @@ div.autocomplete {
   }
 
   .tasting-note {
-    color: #555;
+    color: #333;
   }
 }
 
@@ -144,7 +144,7 @@ div.autocomplete {
   li {
     list-style-type: none;
     padding-bottom: 5px;
-    color: #555;
+    color: #333;
   }
   li:hover {
     cursor: pointer;
@@ -182,5 +182,23 @@ div.password {
     width: 100%;
     background-color: #607D8B;
     border-color: #607D8B;
+  }
+}
+
+.well {
+  background-color: #fff;
+}
+
+.password {
+  form {
+    padding-top: 10px;
+  }
+}
+
+.pagination {
+  label {
+    padding-top: 8px;
+    padding-left: 15px;
+    font-size: 1.1em;
   }
 }
